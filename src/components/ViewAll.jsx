@@ -5,12 +5,14 @@ import axios from 'axios'
 const ViewAll = () => {
     const [data, changeData] = useState([])
     const fetchData = () => {
-        axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+        axios.get("https://courseapplogix.onrender.com/getdata").then(
             (response)=>{
                 console.log(response.data)
                 changeData(response.data)
             }
-        ).catch().finally()
+        ).catch((error)=>{
+            console.log(error.message)
+        }).finally()
     }
     useEffect(()=>{fetchData()},[])
     return (
